@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body{
+        font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+      }
+    nav{
+      display: flex;
+      justify-content: space-around;
+      height: 100px;
+      width: 100%;
+      align-items: center;
+      background-color: #3498db;
+      color:#f0f0f0 ;
+    }
+    nav ul{
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      list-style-type: none;
+    }
+     .btn{
+      text-decoration: none;
+      color: rgb(253, 251, 251);
+      background-color:#e74c3c !important;
+      padding: 10px;
+      border-radius: 10px;
+      border: 2px solid #e74c3c !important;
+     }
+     .btn:hover{
+      color: rgb(250, 250, 253);
+      background-color: #c0392b !important;
+
+     }
+    nav ul li{
+      text-transform: uppercase;
+    }
+      .info{
+        height: 500px;
+        background-color: #f5f6ff; /* Grey background color */
+      }
+      
+      #check{
+border-color: #3498db;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: #3498db;
+        width: 150px;
+        margin-top: 10px;
+        color: #f5f6ff;
+      }
+      #check:hover{
+        background-color:#004085;
+      }
+      button {
+        text-decoration: none;
+        margin-right: 20px;
+        margin-left: 30px;
+      }
+      .navbar-brand {
+        text-transform: uppercase;
+      }
+      .card img {
+        margin-top: 10px;
+        width: 100%;
+        height: 100px;
+      }
+      .card {
+        width:28rem;
+        margin: 20px;
+        height: 600px;
+        border: 2px solid black;
+        background-color:  #f5f6ff;
+        border-radius: 5px;
+      
+      }
+      nav ul li:nth-child(1){
+        margin-top: 20px;
+      }
+
+      .card-img-top {
+        object-fit: contain;
+        height: 150px;
+      }
+      span {
+        font-weight: 400;
+      }
+
+      .card-body {
+        background-color:  #f5f6ff; /* Grey background color */
+        display: block;
+  margin-bottom: 8px;
+  color: #3498db; /* Blue color */
+  font-weight: bold;
+      }
+      .allCards {
+        display: flex;
+        width: 80%;
+        justify-content: start;
+        align-items: center;
+      }
+.border{
+  background-color:  #f5f6ff; /* White background */
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+      .input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border: none;
+  outline: none;
+ color: #050505; /* Light blue-gray background */
+  border-radius: 5px;
+}
+
+       nav{
+        display: flex;
+        justify-content: start;
+      }
+    </style>
+    <title>Hone</title>
+  </head>
+  <body>
+   <nav>
+    <ul>
+      <li><h4>project submission website</h4></li>
+       <a href="/login"><button id="check" class="btn">Login</button></a>
+        <a href="/signup"><button id="check" class="btn">Signup</button></a>
+    </ul>
+   </nav>
+
+    <!-- body -->
+    <div class="allCards">
+  <% user.forEach(function(elem) { %>
+    <% if (elem.projects.length > 0) { %>
+      <% elem.projects.forEach(function(entry) { %>
+        <div class="card">
+          <div class="info">
+          <img class="card-img-top" src="/images/uploads/<%= entry.file %>" />
+
+          <div class="card-body">
+            <p>By: <span class="input"> <%= elem.username%></span></p>
+            <h4><%= entry.projectName %></h4>
+
+            <p class="card-text">
+              <p>Project description:</p> <h4 class="input border"><%= entry.description %></h4>
+            </p>
+            <p class="card-text "><strong>Date:</strong><span class="input"><%= entry.date %></span> </p>
+            <p class="card-text "><strong>Time:</strong><span class="input"><%= entry.timestamp %></span> </p>
+            </div>
+          </div>
+            <a target="_blank" href="<%= entry.hostedUrl %> "><button id="check">check</button></a>
+        </div>
+      <% }) %>
+    <% } %>
+  <% }) %>
+</div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    
+</html>
